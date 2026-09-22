@@ -1,72 +1,93 @@
-# Federal Republic of Nigeria • Unified School Management & Multi-Tier Portal
-### Powered by GetoCore Digital Innovation
+# Shri Ramanujan Vidya Mandir — School Management System (SMS)
+### Role-Based Digital Education Platform for Indian Schools
+*Motto: "ज्ञानं परमं बलम् — Knowledge is the Ultimate Strength"*
 
-A multi-tenant, cloud-native enterprise education management platform engineered for Nigerian primary, secondary, and tertiary institutions across all 36 States and the FCT Abuja.
-
----
-
-## 🌟 Executive Summary & Piloting Overview
-
-This platform provides end-to-end institutional management tailored to the **Federal Ministry of Education (FME)**, **NERDC**, **TRCN**, **WAEC**, **NECO**, **JAMB**, and **NUC/NBTE/NCCE** standards.
-
-### Key Capabilities for Pilot Schools:
-1. **Tier-Specific Customization**:
-   - **Early Childhood & Primary** (Crèche, Nursery 1-2, Primary 1-6)
-   - **Junior Secondary** (JSS 1-3 with BECE/Junior WAEC tracking)
-   - **Senior Secondary** (SSS 1-3 Science, Arts, and Commercial tracks)
-   - **Tertiary & Sub-Programs** (Undergraduate, Remedial/IJMB, Diploma, Professional Certifications)
-2. **Super Admin Module Locking (GetoCore Command)**:
-   - Central control to lock or unlock tiers based on the pilot school's exact operational scope (e.g. Nursery, Primary & Secondary only).
-3. **Office-Specific Workspaces**:
-   - **Principal / Administrator**: School-wide oversight, statutory reporting, accreditation compliance.
-   - **Academic Dean / HOD**: Subject allocation, curriculum delivery, continuous assessment weighting (CA1 20%, CA2 20%, Exam 60%).
-   - **Registrar**: Admissions, biometric student profiles, state of origin, NIN/TRCN records.
-   - **Chief Bursar**: Nigerian fee management (Naira ₦), termly invoicing, bank teller/proof reconciliation queue.
-   - **Teachers**: Grade entry, psychomotor evaluation (5-point NERDC scale), attendance tracking.
-   - **Parents**: Multi-ward dashboard, sibling rebate calculator (10%), installment fee plans, Paystack / Wema Titan virtual accounts / Remita RRR teller reconciliation, official exam clearance pass generator.
-   - **Students & Alumni**: CBT testing engine, performance transcripts, lifelong alumni community network.
+A modern, role-segregated School Management System (SMS) tailored for Indian primary, secondary, and higher secondary schools following CBSE, ICSE, and State Board educational benchmarks.
 
 ---
 
-## 🚀 Quick Deployment & Hosting Options
+## 🌟 Overview & Key Features
 
-### Option 1: Instant 1-Click Hosting on Vercel (Recommended for Live Pilot)
-1. Push this project to GitHub.
-2. Log in to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-3. Select your repository (`school-management-system` or `<school-name>-portal`).
-4. Click **Deploy**. Vercel will automatically build the Next.js application and assign a live, high-speed HTTPS domain (e.g., `https://your-school-portal.vercel.app` or custom domain `portal.yourschool.edu.ng`).
+The **School Management System (SMS)** provides a centralized, role-based platform designed to manage and streamline academic, administrative, and student-related activities within a school. It features three dedicated dashboards for **Admin, Teachers, and Students**:
 
-### Option 2: VPS / Linux Server (Ubuntu / Debian) with PM2 & Nginx
+### 1. 🛡️ School Administrator Portal
+- **Centralized Dashboard**: Real-time monitoring of total enrolled students, faculty strength, attendance averages, and fee collection metrics in Indian Rupees (`₹`).
+- **Student & Staff Registry**: Comprehensive admission records, roll numbers, guardian contact info, and subject allocations.
+- **Financial Oversight & Bursary**: Term-wise fee management, payment tracking, invoice generation, and financial reporting.
+- **Institutional Settings**: Manage academic session calendars (e.g. 2026/2027), school announcements, branding, and grading parameters.
+
+### 2. 👩‍🏫 Teacher Portal
+- **Class & Subject Management**: Designated class teacher views (e.g. *Class XII — Science A*), subject allocations, and daily period timetables.
+- **Attendance & Grading**: Quick daily attendance marking, Continuous Assessment (CA1, CA2), and Terminal Examination scoring.
+- **CBT & Assessment Studio**: Create timed online tests, objective/MCQ question banks, and automated result processing.
+
+### 3. 🎓 Student Portal
+- **Personalized Scholar Hub**: Student profile card with Roll No, assigned class arm, and live attendance percentage.
+- **Schedule & Timetable**: Real-time view of daily class periods, subject teachers, and classroom locations.
+- **Fee Status & Receipts**: Clear breakdown of paid vs. pending tuition fees (`₹`), with payment history and downloadable clearance passes.
+- **Notice Board & Materials**: School announcements, examination timetables, and subject study resources.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Lucide Icons.
+- **Backend API**: Node.js, Express.js, MongoDB (Mongoose ORM).
+- **Styling & UI**: Modern glassmorphism, responsive Tailwind design system, custom typography (Plus Jakarta Sans).
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- **Node.js**: v18.0.0 or higher
+- **npm**: v9.0.0 or higher
+
+### 2. Installation
 ```bash
-# Clone & install dependencies
-git clone <your-repo-url> school-portal
-cd school-portal
+# Clone the repository
+git clone https://github.com/astha1504/School-Proj.git
+cd School-Proj
+
+# Install dependencies
 npm install
+cd server && npm install && cd ..
+```
+
+### 3. Running Locally
+```bash
+# Start both Backend Server (Port 5000) & Next.js Frontend (Port 3030)
+npm run dev
+```
+
+Visit [http://localhost:3030](http://localhost:3030) in your browser to access the portal.
+
+### 4. Production Build
+```bash
+# Build production bundle
 npm run build
 
-# Start production server with PM2
-pm2 start npm --name "school-portal" -- start -- -p 3030
-pm2 save
-```
-
-### Option 3: Docker Container
-```bash
-docker build -t getocore/school-portal:latest .
-docker run -d -p 3030:3030 --name school-portal getocore/school-portal:latest
+# Start production server
+npm run start
 ```
 
 ---
 
-## 🏫 Piloting Checklist for a Partner School
+## 🔑 Demo Login Accounts
 
-- [ ] School Name, Motto, and Official Crest/Logo.
-- [ ] Active Educational Sections (e.g., Nursery/Primary + JSS/SSS).
-- [ ] Fee Schedule & Compulsory Levies (Tuition, Development, ICT/CBT, PTA, Books, Bus, Lunch).
-- [ ] Bank Account & Gateway Setup (Paystack Secret Key, Monnify, Remita RRR, or Virtual Accounts).
-- [ ] Initial Staff, Teacher, and Student Enrollment CSV upload.
-- [ ] Dedicated Subdomain (e.g. `pilot.getocore.com` or `portal.schoolname.edu.ng`).
+You can log in instantly using the demo cards on the login page:
+
+| Role | Name | Identifier / Email | Portal Access |
+|---|---|---|---|
+| **Administrator** | Dr. Rajesh Kumar Sharma | `SRVM-ADMIN-001` / `admin@srvmschool.edu.in` | Full Admin Dashboard |
+| **Teacher** | Mrs. Sunita Patel | `SRVM-TCH-042` / `teacher@srvmschool.edu.in` | Teacher Portal & Class XII-A |
+| **Student** | Arjun Mehta | `SRVM/2024/XII/089` / `student@srvmschool.edu.in` | Student Portal |
 
 ---
 
-**Developed & Engineered by GetoCore Digital Innovation**  
-*Pioneering Next-Generation Educational Infrastructure for the Federal Republic of Nigeria.*
+## 🏫 Institutional Profile
+
+- **School Name**: Shri Ramanujan Vidya Mandir
+- **Motto**: *"ज्ञानं परमं बलम् — Knowledge is the Ultimate Strength"*
+- **Location**: Visakhapatnam, Andhra Pradesh, India
+- **Repository**: [https://github.com/astha1504/School-Proj](https://github.com/astha1504/School-Proj)
